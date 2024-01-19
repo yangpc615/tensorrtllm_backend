@@ -22,11 +22,15 @@
 # EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 cmake_minimum_required(VERSION 3.17)
+message(STATUS "CMAKE_CURRENT_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
+
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/set_ifndef.cmake)
 
 set(TRITON_BUILD
     OFF
     CACHE STRING "Using Triton build process")
+
+message(STATUS "TRITON_BUILD: ${TRITON_BUILD}")
 
 if(TRITON_BUILD)
   set_ifndef(TRTLLM_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tensorrt_llm)
